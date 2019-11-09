@@ -1,26 +1,24 @@
 package com.bridgelabz.JDBC;
 
 import java.sql.*;
+public class CallableStatement {
 
-public class PrepareStatement {
 	public static void main(String[] args) throws Exception {
 		String url = "jdbc:mysql://localhost:3306/bridgelabz";
 		String user = "root";
 		String pass = "password";
-		int s_id = 15;
-		String s_name = "prem";
-		String query = "insert into student values (?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, user, pass);
-		PreparedStatement pst = con.prepareStatement(query);
-		pst.setInt(1, s_id);
-		pst.setString(2, s_name);
-
-		int count = pst.executeUpdate();
-		System.out.println(count + " row/s affected");
-
-		pst.close();
+		java.sql.CallableStatement cst = con.prepareCall("{CALL `bridgelabz`.`new_procedure`()}");
+		ResultSet rs = cst.executeQuery();
+		String userdata ="";
+		while(rs.next()) {
+			userdata = rs.getInt(1)+" : "+rs.getString(2);
+			System.out.println(userdata);
+		}
+		
+		//System.out.println("success");
+		cst.close();
 		con.close();
 	}
-
 }

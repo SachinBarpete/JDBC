@@ -10,8 +10,8 @@ public class TransactionManagement {
 		String url = "jdbc:mysql://localhost:3306/bridgelabz";
 		String user = "root";
 		String pass = "password";
-		int s_id = 10;
-		String s_name = "smith";
+		int s_id = 20;
+		String s_name = "barpete";
 		String query = "insert into student values(?,?)";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection(url, user, pass);
