@@ -2,7 +2,10 @@ package com.bridgelabz.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**
+ * @author Sachin Barpete
+ * @purpose select name for given id from table using callableStatement 
+ */
 public class CallableStatementINOUT {
 
 	public static void main(String[] args) throws Exception {
@@ -17,9 +20,7 @@ public class CallableStatementINOUT {
 		cst.executeUpdate();
 		String name = cst.getString(2);
 		System.out.println(name);
-		
 		System.out.println("run successfully");
-
 		cst.close();
 		con.close();
 	}

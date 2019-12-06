@@ -2,7 +2,10 @@ package com.bridgelabz.JDBC;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+/**
+ * @author Sachin Barpete
+ * @purpose insert data into table using callableStatement 
+ */
 public class CallableStatementIN {
 
 	public static void main(String[] args) throws Exception {
@@ -17,10 +20,7 @@ public class CallableStatementIN {
 		cst.setInt(1, id);
 		cst.setString(2, name);
 		int count = cst.executeUpdate();
-
-		
 		System.out.println(count + " row/s affected");
-
 		cst.close();
 		con.close();
 	}

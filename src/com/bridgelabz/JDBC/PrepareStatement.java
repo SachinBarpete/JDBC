@@ -1,7 +1,10 @@
 package com.bridgelabz.JDBC;
 
 import java.sql.*;
-
+/**
+ * @author Sachin Barpete
+ * @purpose insert data into student table using prepare statement 
+ */
 public class PrepareStatement {
 	public static void main(String[] args) throws Exception {
 		String url = "jdbc:mysql://localhost:3306/bridgelabz";
@@ -15,10 +18,8 @@ public class PrepareStatement {
 		PreparedStatement pst = con.prepareStatement(query);
 		pst.setInt(1, s_id);
 		pst.setString(2, s_name);
-
 		int count = pst.executeUpdate();
 		System.out.println(count + " row/s affected");
-
 		pst.close();
 		con.close();
 	}
